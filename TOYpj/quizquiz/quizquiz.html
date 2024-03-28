@@ -12,47 +12,119 @@
         }
 
         body {
-            padding: 20px;
+            background-image: url(../quizquiz/img/01bg.avif);
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        #header {
+            color: #fff;
+            text-align: center;
             align-items: center;
             justify-content: center;
         }
 
-        .question {
-            margin-bottom: 20px;
+        #header h1 {
+            padding: 10px;
+            font-size: 40px;
         }
 
-        .question label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
+        /* //header */
+
+        .quiz__wrap {}
+
+        .quiz__wrap .quiz {
+            width: 500px;
+            background-color: #fff;
+            margin: 15px;
+            padding: 40px;
+            border-radius: 20px;
         }
 
-        .question input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
+        .quiz__header {}
 
-        button {
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+        #footer {}
 
-        button:hover {
-            background-color: #0056b3;
-        }
+        /* //footer */
     </style>
 </head>
 
 <body>
-    <h2>JavaScript Quiz</h2>
-
-    <button onclick="checkAnswers()">제출</button>
+    <header id="header">
+        <h1>JS TEST BOOK</h1>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <div class="quiz__header"></div>
+                <div class="quiz__question"></div>
+                <div class="quiz__input"></div>
+                <div class="quiz__answer"></div>
+                <div class="quiz__footer">
+                    <button class="cofrim">확인</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer"></footer>
+    <!-- //footer -->
 
     <script>
+        // 문제 정보
+        const quizInfo = [
+            {
+                infoN: "01",
+                infoQ: "let fruits = ['사과', '바나나', '포도']; 배열의 첫 번째 요소를 출력하기 위해 'console.log(???)' ??? 안에 들어갈 답을 쓰세요.",
+                infoA: "fruits",
+            },
+            {
+                infoN: "02",
+                infoQ: "let numbers - [1, 2, 3, 4, 5]; 배열의 길이를 출력하기 위해 'console.log(???)' ??? 안에 들어갈 답을 쓰세요",
+                infoA: "numbers.length",
+            },
+            {
+                infoN: "03",
+                infoQ: "<pre><code>11</code><pre>",
+                infoA: "1",
+            },
+            {
+                infoN: "04",
+                infoQ: "",
+                infoA: "",
+            },
+            {
+                infoN: "05",
+                infoQ: "",
+                infoA: "",
+            },
+            {
+                infoN: "06",
+                infoQ: "",
+                infoA: "",
+            },
+        ]
+
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+        const quizN = quizWrap.querySelectorAll(".quiz__header");
+        const quizQ = quizWrap.querySelectorAll(".quiz__question");
+        const quizA = quizWrap.querySelectorAll(".quiz__answer");
+        const quizInput = quizWrap.querySelectorAll(".quiz__input");
+        const quizConfirm = quizWrap.querySelectorAll(".quiz__confirm");
+
+
+        // 문제출력
+        quizInfo.forEach((e, i) => {
+            quizN[i].innerHTML = quizInfo[i].infoN
+            quizQ[i].innerHTML = quizInfo[i].infoQ
+            quizA[i].innerHTML = quizInfo[i].infoA
+        });
+
+
     </script>
 </body>
 

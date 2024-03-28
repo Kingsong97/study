@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .question input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>JavaScript Quiz</h2>
+
+    <div id="quiz">
+        <!-- Questions will be inserted here dynamically -->
+    </div>
+
+    <button onclick="checkAnswers()">제출</button>
+
+    <script>
+        const questions = [
+            { question: "let ___ = 'Hello, World!'; 콘솔에 위 변수를 출력하세요.", answer: "message" },
+            { question: "const ___ = 2024; 상수를 선언하고, 그 값을 출력하세요.", answer: "year" },
+            // Add more questions here
+        ];
+
+        const quizContainer = document.getElementById('quiz');
+
+        questions.forEach((q, index) => {
+            const questionEl = document.createElement('div');
+            questionEl.classList.add('question');
+            questionEl.innerHTML = `
+                <label for="q${index}">${q.question}</label>
+                <input type="text" id="q${index}" />
+            `;
+            quizContainer.appendChild(questionEl);
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            questions.forEach((q, index) => {
+                const userAnswer = document.getElementById(`q${index}`).value;
+                if (userAnswer.trim().toLowerCase() === q.answer.toLowerCase()) {
+                    score++;
+                }
+            });
+            alert(`당신의 점수는 ${score}/${questions.length} 입니다.`);
+        }
+    </script>
+</body>
+
+</html>
