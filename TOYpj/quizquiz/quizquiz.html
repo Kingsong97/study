@@ -5,50 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Quiz</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-image: url(../quizquiz/img/01bg.avif);
-            background-size: cover;
-            background-position: center center;
-            width: 100%;
-            min-height: 100vh;
-        }
-
-        #header {
-            color: #fff;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #header h1 {
-            padding: 10px;
-            font-size: 40px;
-        }
-
-        /* //header */
-
-        .quiz__wrap {}
-
-        .quiz__wrap .quiz {
-            width: 500px;
-            background-color: #fff;
-            margin: 15px;
-            padding: 40px;
-            border-radius: 20px;
-        }
-
-        .quiz__header {}
-
-        #footer {}
-
-        /* //footer */
-    </style>
+    <link rel="stylesheet" href="../quizquiz/css/style.css">
 </head>
 
 <body>
@@ -57,17 +14,7 @@
     </header>
     <!-- //header -->
     <main id="main">
-        <div class="quiz__wrap">
-            <div class="quiz">
-                <div class="quiz__header"></div>
-                <div class="quiz__question"></div>
-                <div class="quiz__input"></div>
-                <div class="quiz__answer"></div>
-                <div class="quiz__footer">
-                    <button class="cofrim">확인</button>
-                </div>
-            </div>
-        </div>
+        <div class="quiz__wrap"></div>
     </main>
     <!-- //main -->
     <footer id="footer"></footer>
@@ -88,7 +35,7 @@
             },
             {
                 infoN: "03",
-                infoQ: "<pre><code>11</code><pre>",
+                infoQ: "",
                 infoA: "1",
             },
             {
@@ -110,19 +57,38 @@
 
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
-        const quizN = quizWrap.querySelectorAll(".quiz__header");
-        const quizQ = quizWrap.querySelectorAll(".quiz__question");
-        const quizA = quizWrap.querySelectorAll(".quiz__answer");
-        const quizInput = quizWrap.querySelectorAll(".quiz__input");
-        const quizConfirm = quizWrap.querySelectorAll(".quiz__confirm");
+
 
 
         // 문제출력
-        quizInfo.forEach((e, i) => {
-            quizN[i].innerHTML = quizInfo[i].infoN
-            quizQ[i].innerHTML = quizInfo[i].infoQ
-            quizA[i].innerHTML = quizInfo[i].infoA
-        });
+        const updateQuiz = (index) => {
+            let quizWrapBox = ` <div class="quiz">
+                <div class="quiz__header"></div>
+                <div class="quiz__main">
+                    <div class="quiz__question"></div>
+                    <div class="choices">
+                        <label for="choice1" id="choice1" name="choice" value="1">
+                            <span></span>
+                        </label>
+                        <label for="choice2" id="choice2" name="choice" value="2">
+                            <span></span>
+                        </label>
+                        <label for="choice3" id="choice3" name="choice" value="3">
+                            <span></span>
+                        </label>
+                        <label for="choice4" id="choice4" name="choice" value="4">
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="quiz__input"></div>
+                    <div class="quiz__answer"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="cofrim">확인</button>
+                    <button class="next">다음</button>
+                </div>
+            </div>`
+        }
 
 
     </script>
