@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#wrap button {
+    margin-top: 10px;
+}
