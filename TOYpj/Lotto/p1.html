@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>번호 생성기</h1>
+        <button>당첨 가즈아!</button>
+        <div id="numbers"></div>
+    </div>
+
+
+    <script>
+        document.querySelector('button').addEventListener('click', () => {
+            let numbers = randomNumbers();
+            document.getElementById('numbers').innerHTML = numbers.join(', ')
+        });
+
+        randomNumbers = () => {
+            let lottoNumbers = [];
+            while (lottoNumbers.length < 6) {
+                let number = Math.floor(Math.random() * 45) + 1;
+                if (lottoNumbers.indexOf(number) === -1) {
+                    lottoNumbers.push(number);
+                }
+            }
+            return lottoNumbers.sort((a, b) => a - b);
+        }
+    </script>
+</body>
+
+</html>
